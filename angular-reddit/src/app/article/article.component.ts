@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 // model
 import { Article } from './article.model';
@@ -16,7 +16,7 @@ export class ArticleComponent implements OnInit {
     //title: string;
     //link: string;
 
-    article: Article;
+    @Input() article: Article;
 
     constructor() {
         //this.title = 'Angular 2';
