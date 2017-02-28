@@ -1,0 +1,7 @@
+<ul>
+    <li *ngFor="let name of names">Hello {{ name }}</li>
+</ul>
+
+<ul>
+    <app-user-item *ngFor="let n of names" [name]="n"></app-user-item>
+</ul>
