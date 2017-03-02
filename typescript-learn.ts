@@ -120,3 +120,48 @@ r.run();
 
 // Utilities
 // Fat Arrow Functions
+var data = ['AAA', 'BBB', 'CCC'];
+data.forEach(function(line) { console.log(line); });
+
+data.forEach( (line) => console.log(line) );
+
+var evens = [2,4,6,8];
+var odds = evens.map(v => v + 1);
+
+data.forEach( line => {
+    console.log(line.toUpperCase())
+} );
+
+// share the same `this` as the surrounding code.
+var nate = {
+    name: 'AAA',
+    guitars: ['G1', 'G2', 'G3'],
+    p_guitars: function() {
+        var self = this;
+        this.guitars.forEach(function(g) {
+            console.log(self.name + " plays a " + g);
+        });
+    }
+};
+
+var nate = {
+    name: 'AAA',
+    guitars: ['G1', 'G2', 'G3'],
+    p_guitars: function() {
+        var self = this;
+        this.guitars.forEach( (g) => {
+            console.log(this.name + " plays a " + g);
+        });
+    }
+}
+
+// Template Strings
+var hello = "Hello";
+var world = "World";
+var hello_world = `${hello} ${world}`;
+
+var template = `
+    <div>
+        <p>hahahahahaha</p>
+    </div>
+`;
