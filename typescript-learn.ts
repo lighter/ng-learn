@@ -66,4 +66,57 @@ class User {
     hello() {
         console.log("Hellow", this.first_name);
     }
+
+    ageInYears(years: number): number {
+        return this.age + years;
+    }
 }
+
+var u: User = new User();
+u.age = 18;
+u.ageInYears(18);
+
+// Constructors
+class Vehicle {
+    color: string;
+
+    //constructor() {
+    constructor(color: string) {
+        this.color = color;
+    }
+}
+
+// var v = new Vehicle();
+var v = new Vehicle('red');
+
+// Inheritance
+class Report {
+    data: Array<string>;
+
+    constructor(data: Array<string>) {
+        this.data = data;
+    }
+
+    run() {
+        this.data.forEach(function(line) { console.log(line); });
+    }
+}
+
+var r: Report = new Report(['First line', 'Second line']);
+r.run();
+
+class TabbedReport extends Report {
+    headers: Array<string>;
+
+    constructor(headers: string[], values: string[]) {
+        super(values);
+    }
+}
+
+var headers: string[] = ['Name'];
+var data: string[] = ['Alice Green', 'Paul Gray', 'Louis Blakenship'];
+var r: TabbedReport = new TabbedReport(headers, data);
+r.run();
+
+// Utilities
+// Fat Arrow Functions
