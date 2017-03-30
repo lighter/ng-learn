@@ -1,0 +1,3 @@
+<!--<input type="text" [value]="todoText" (input)="changeTodoText($event)" [placeholder]="placeholderText">-->
+<input type="text" [(ngModel)]="todoText" [placeholder]="placeholderText">
+<button (click)="addTodo($event)">send</button>
