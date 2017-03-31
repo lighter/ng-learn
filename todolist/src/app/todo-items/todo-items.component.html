@@ -1,10 +1,10 @@
 <ul>
   <li *ngFor="let item of getTodoList(); let recordIndex = index; let firstRecord = first; let lastRecord = last; let evenRecord = even; let oddRecord = odd">
     <label htmlFor="chk_{{item.id}}" [ngClass]="{'done': item.done}">
-      <input type="checkbox" id="chk_{{item.id}}" [checked]="item.done"> {{item.value}}, {{recordIndex}}, {{firstRecord}}, {{lastRecord}}, {{evenRecord}}, {{oddRecord}}
+      <input type="checkbox" id="chk_{{item.id}}" [checked]="item.done" (click)="itemClick(item)"> {{item.value}}, {{recordIndex}}, {{firstRecord}}, {{lastRecord}}, {{evenRecord}}, {{oddRecord}}
     </label>
     |
     <a href="#" (click)="delete(item)">delete</a>
-    <span *ngIf="item.done">done</span>
+    <span>{{item | todoDone: true}}</span>
   </li>
 </ul>
