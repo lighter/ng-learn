@@ -1,5 +1,5 @@
 <ul>
-  <li *ngFor="let item of items; let recordIndex = index; let firstRecord = first; let lastRecord = last; let evenRecord = even; let oddRecord = odd">
+  <li *ngFor="let item of getTodoList(); let recordIndex = index; let firstRecord = first; let lastRecord = last; let evenRecord = even; let oddRecord = odd">
     <label htmlFor="chk_{{item.id}}" [ngClass]="{'done': item.done}">
       <input type="checkbox" id="chk_{{item.id}}" [checked]="item.done"> {{item.value}}, {{recordIndex}}, {{firstRecord}}, {{lastRecord}}, {{evenRecord}}, {{oddRecord}}
     </label>

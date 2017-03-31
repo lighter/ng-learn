@@ -1,4 +1,5 @@
 import {Component, OnInit, Output, EventEmitter} from '@angular/core';
+import { TodoListService } from './../todo-list.service';
 
 @Component({
   selector: 'app-add-form',
@@ -7,12 +8,12 @@ import {Component, OnInit, Output, EventEmitter} from '@angular/core';
 })
 export class AddFormComponent implements OnInit {
 
-  @Output() addTodoItem = new EventEmitter();
+  // @Output() addTodoItem = new EventEmitter();
 
   placeholderText = 'todo something';
   todoText = '';
 
-  constructor() {
+  constructor(private todoListService: TodoListService) {
   }
 
   ngOnInit() {
@@ -23,7 +24,8 @@ export class AddFormComponent implements OnInit {
     console.log('event', $event);
     console.log('todoText', this.todoText);
 
-    this.addTodoItem.emit(this.todoText);
+    // this.addTodoItem.emit(this.todoText);
+    this.todoListService.addTodo(this.todoText);
   }
 
   // changeTodoText($event: KeyboardEvent) {

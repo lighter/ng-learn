@@ -1,5 +1,6 @@
 import { TodoItem } from './../shared/todo-item';
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { TodoListService } from './../todo-list.service';
 
 @Component({
   selector: 'app-todo-items',
@@ -9,15 +10,24 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 export class TodoItemsComponent implements OnInit {
 
   //@Input('items') theItems: TodoItem[];
-  @Input() items: TodoItem[];
-  @Output() deleteItem = new EventEmitter();
+  // @Input() items: TodoItem[];
+  // @Output() deleteItem = new EventEmitter();
 
-  constructor() { }
+  constructor(private  todoListService: TodoListService) { }
 
   ngOnInit() {
   }
 
+  getTodoList() {
+    return this.todoListService.getTodoList();
+  }
+
+  itemClick(item: TodoItem) {
+    this.todoListService.toogleItemStatus(item);
+  }
+
   delete (item: TodoItem) {
-    this.deleteItem.emit(item)
+    // this.deleteItem.emit(item)
+    this.todoListService.deleteItem(item);
   }
 }
