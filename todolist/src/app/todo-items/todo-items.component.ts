@@ -13,9 +13,13 @@ export class TodoItemsComponent implements OnInit {
   // @Input() items: TodoItem[];
   // @Output() deleteItem = new EventEmitter();
 
-  constructor(private  todoListService: TodoListService) { }
+  constructor(private  todoListService: TodoListService) {
+    console.log('constructor');
+  }
 
   ngOnInit() {
+    console.log('Init');
+    this.todoListService.loadTodoList();
   }
 
   getTodoList() {
