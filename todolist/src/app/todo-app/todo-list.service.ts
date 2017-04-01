@@ -1,4 +1,4 @@
-import { TodoItem } from './shared/todo-item';
+import { TodoItem } from '../shared/todo-item';
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/toPromise';
