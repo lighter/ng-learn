@@ -1,6 +1,6 @@
 import { browser, element, by } from 'protractor';
 
-export class BlogerPage {
+export class BloggerPage {
   navigateTo() {
     return browser.get('/');
   }
