@@ -1,25 +1,95 @@
-<h1>Sign up</h1>
-<form [formGroup]="signUpForm" (ngSubmit)="onSubmit(signUpForm.value)">
-  <input type="text" id="email" placeholder="email" [formControl]="email"/>
-  <div *ngIf="signUpForm.controls.email.errors">
-    <span *ngIf="email.hasError('required')">必填項目</span>
-    <span *ngIf="signUpForm.controls.email.errors.invalidEmail">請輸入正確的 email</span>
-  </div>
+<div class="container myContainer">
 
-  <input type="password" id="password" placeholder="password" [formControl]="password">
-  <div *ngIf="signUpForm.controls.password.errors">
-    <span *ngIf="signUpForm.controls.password.errors.required">必填項目</span>
-    <span *ngIf="signUpForm.controls.password.errors.minlength">最少 5 位數</span>
-  </div>
+  <form class="form-horizontal" [formGroup]="signUpForm" (ngSubmit)="onSubmit(signUpForm.value)">
+    <div class="row">
+      <div class="col-md-3"></div>
+      <div class="col-md-6">
+        <h2>Register New User</h2>
+        <hr>
+      </div>
+    </div>
+    <!--Email-->
+    <div class="row">
+      <div class="col-md-3 field-label-responsive">
+        <label for="email">E-Mail Address</label>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group" [class.has-danger]="!email.valid && email.touched">
+          <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+            <div class="input-group-addon" style="width: 2.6rem"><i class="fa fa-at"></i></div>
+            <input type="text" name="email" class="form-control" id="email"
+                   placeholder="you@example.com" required autofocus [formControl]="email">
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="form-control-feedback">
+          <span class="text-danger align-middle">
+            <!-- Put e-mail validation error messages here -->
+            <p *ngIf="email.hasError('required')">必填項目</p>
+            <p *ngIf="email.hasError('invalidEmail')">請輸入正確的 email</p>
+          </span>
+        </div>
+      </div>
+    </div>
 
-  <input type="password" id="confirm_password" placeholder="confirm password" [formControl]="confirm_password">
-  <div *ngIf="signUpForm.controls.confirm_password.errors">
-    <span *ngIf="signUpForm.controls.confirm_password.errors.required">必填項目</span>
-    <span *ngIf="signUpForm.controls.confirm_password.errors.minlength">最少 5 位數</span>
-  </div>
-  <span *ngIf="signUpForm.hasError('mismatchedPasswords')">密碼與確認密碼不同</span>
+    <!--Password-->
+    <div class="row">
+      <div class="col-md-3 field-label-responsive">
+        <label for="password">Password</label>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group" [class.has-danger]="!password.valid && password.touched">
+          <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+            <div class="input-group-addon" style="width: 2.6rem"><i class="fa fa-key"></i></div>
+            <input type="password" name="password" class="form-control" id="password"
+                   placeholder="Password" required [formControl]="password">
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="form-control-feedback">
+          <span class="text-danger align-middle">
+            <i class="fa fa-close" *ngIf="password.hasError('required')">必填項目</i>
+            <i class="fa fa-close" *ngIf="password.hasError('minlength')">最少 5 位數</i>
+          </span>
+        </div>
+      </div>
+    </div>
 
-  <button type="submit" class="ui button" *ngIf="signUpForm.valid">Submit</button>
-</form>
+    <!--Confirm password-->
+    <div class="row">
+      <div class="col-md-3 field-label-responsive">
+        <label for="password">Confirm Password</label>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group" [class.has-danger]="!confirm_password.valid && confirm_password.touched">
+          <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+            <div class="input-group-addon" style="width: 2.6rem">
+              <i class="fa fa-repeat"></i>
+            </div>
+            <input type="password" name="password-confirmation" class="form-control"
+                   id="password-confirm" placeholder="Password" required [formControl]="confirm_password">
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="form-control-feedback">
+          <span class="text-danger align-middle">
+            <i class="fa fa-close" *ngIf="confirm_password.hasError('required')">必填項目</i>
+            <i class="fa fa-close" *ngIf="confirm_password.hasError('minlength')">最少 5 位數</i>
+            <i class="fa fa-close" *ngIf="signUpForm.hasError('mismatchedPasswords')">密碼與確認密碼不同</i>
+          </span>
+        </div>
+      </div>
 
-<pre>{{signUpForm.value | json}}</pre>
+    </div>
+    <div class="row">
+      <div class="col-md-3"></div>
+      <div class="col-md-6">
+        <button type="submit" class="btn btn-success" *ngIf="signUpForm.valid"><i class="fa fa-user-plus"></i> Register
+        </button>
+      </div>
+    </div>
+  </form>
+</div>
