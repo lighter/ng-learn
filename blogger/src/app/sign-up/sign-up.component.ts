@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import {Component, OnInit} from '@angular/core';
+import {AbstractControl, FormBuilder, FormGroup, Validators} from "@angular/forms";
 
-import { emailValidator, matchingPasswords } from '../../app/validators/validators';
+import {emailValidator, matchingPasswords} from '../../app/validators/validators';
 
 @Component({
   selector: 'app-sign-up',
@@ -11,21 +11,33 @@ import { emailValidator, matchingPasswords } from '../../app/validators/validato
 export class SignUpComponent implements OnInit {
 
   signUpForm: FormGroup;
-
-  emailPattern = '^[a-zA-Z0-9.!#$%&』*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:.[a-zA-Z0-9-]+)*$';
+  email: AbstractControl;
+  password: AbstractControl;
+  confirm_password: AbstractControl;
 
   constructor(private _fb: FormBuilder) {
-    this.signUpForm = this._fb.group({
-      'email': ['', Validators.compose([Validators.required,  emailValidator])],
-      'password': ['', Validators.compose([Validators.required, Validators.minLength(5)])],
-      'confirm_password': ['', Validators.compose([Validators.required, Validators.minLength(5)])]
-    }, {validator: matchingPasswords('password', 'confirm_password')});
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.buildFrom();
+  }
 
   onSubmit(sign_up_data) {
     console.log(sign_up_data);
+  }
+
+  buildFrom(): void {
+    this.signUpForm = this._fb.group(
+      {
+      'email': ['', [Validators.required, emailValidator]],
+      'password': ['', [Validators.required, Validators.minLength(5)]],
+      'confirm_password': ['', [Validators.required, Validators.minLength(5)]]
+      },
+      {validator: matchingPasswords('password', 'confirm_password')});
+
+    this.email = this.signUpForm.controls['email'];
+    this.password = this.signUpForm.controls['password'];
+    this.confirm_password = this.signUpForm.controls['confirm_password'];
   }
 
 }

@@ -1,18 +1,18 @@
 <h1>Sign up</h1>
 <form [formGroup]="signUpForm" (ngSubmit)="onSubmit(signUpForm.value)">
-  <input type="text" id="email" placeholder="email" formControlName="email"/>
+  <input type="text" id="email" placeholder="email" [formControl]="email"/>
   <div *ngIf="signUpForm.controls.email.errors">
-    <span *ngIf="signUpForm.controls.email.errors.required">必填項目</span>
+    <span *ngIf="email.hasError('required')">必填項目</span>
     <span *ngIf="signUpForm.controls.email.errors.invalidEmail">請輸入正確的 email</span>
   </div>
 
-  <input type="password" id="password" placeholder="password" formControlName="password">
+  <input type="password" id="password" placeholder="password" [formControl]="password">
   <div *ngIf="signUpForm.controls.password.errors">
     <span *ngIf="signUpForm.controls.password.errors.required">必填項目</span>
     <span *ngIf="signUpForm.controls.password.errors.minlength">最少 5 位數</span>
   </div>
 
-  <input type="password" id="confirm_password" placeholder="confirm password" formControlName="confirm_password">
+  <input type="password" id="confirm_password" placeholder="confirm password" [formControl]="confirm_password">
   <div *ngIf="signUpForm.controls.confirm_password.errors">
     <span *ngIf="signUpForm.controls.confirm_password.errors.required">必填項目</span>
     <span *ngIf="signUpForm.controls.confirm_password.errors.minlength">最少 5 位數</span>
