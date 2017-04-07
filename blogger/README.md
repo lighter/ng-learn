@@ -28,3 +28,5 @@ $ ng set defaults.styleExt scss
 
 * [http://jasonwatmore.com/post/2016/11/24/angular-2-mockbackend-example-for-backendless-development](http://jasonwatmore.com/post/2016/11/24/angular-2-mockbackend-example-for-backendless-development)
 * [http://jasonwatmore.com/post/2016/09/29/angular-2-user-registration-and-login-example-tutorial#alert-service-ts](http://jasonwatmore.com/post/2016/09/29/angular-2-user-registration-and-login-example-tutorial#alert-service-ts)
+* [https://keyholesoftware.com/2017/01/09/setting-up-angular-2-mockbackend/](https://keyholesoftware.com/2017/01/09/setting-up-angular-2-mockbackend/)
+* [https://www.sitepoint.com/angular-2-mockbackend/](https://www.sitepoint.com/angular-2-mockbackend/)
