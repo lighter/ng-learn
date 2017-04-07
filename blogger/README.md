@@ -23,3 +23,8 @@ In styles.scss add the following:
 ```
 $ ng set defaults.styleExt scss
 ```
+
+# fake backend http
+
+* [http://jasonwatmore.com/post/2016/11/24/angular-2-mockbackend-example-for-backendless-development](http://jasonwatmore.com/post/2016/11/24/angular-2-mockbackend-example-for-backendless-development)
+* [http://jasonwatmore.com/post/2016/09/29/angular-2-user-registration-and-login-example-tutorial#alert-service-ts](http://jasonwatmore.com/post/2016/09/29/angular-2-user-registration-and-login-example-tutorial#alert-service-ts)
