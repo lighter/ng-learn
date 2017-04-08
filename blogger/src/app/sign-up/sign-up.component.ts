@@ -20,7 +20,11 @@ export class SignUpComponent implements OnInit {
 
   returnUrl: string;
 
-  constructor(private _fb: FormBuilder, private router: Router, private userService: UserService, private route: ActivatedRoute) {
+  constructor(private _fb: FormBuilder,
+              private router: Router,
+              private userService: UserService,
+              private route: ActivatedRoute)
+  {
   }
 
   ngOnInit() {

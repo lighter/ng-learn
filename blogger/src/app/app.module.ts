@@ -11,6 +11,7 @@ import { BaseRequestOptions } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
+import { SignInComponent } from './sign-in/sign-in.component';
 import { AboutComponent } from './about/about.component';
 import { HomeComponent } from './home/home.component';
 import { HeaderComponent } from './header/header.component';
@@ -19,7 +20,6 @@ import { FooterComponent } from './footer/footer.component';
 import { routes } from './app.routes';
 import { UserService, AuthenticationService} from "./services/index";
 
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,7 +27,8 @@ import { UserService, AuthenticationService} from "./services/index";
     AboutComponent,
     HomeComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    SignInComponent
   ],
   imports: [
     BrowserModule,

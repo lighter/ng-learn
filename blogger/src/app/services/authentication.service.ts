@@ -9,18 +9,22 @@ export class AuthenticationService {
 
   constructor(private http: Http) {}
 
-  login(username: string, password: string) {
+  login(email: string, password: string) {
     return this.http.post('/api/authenticate', JSON.stringify({
-      username: username,
+      email: email,
       password: password
     })).map((response: Response) => {
       console.log(response);
       let user = response.json();
+
+      if (user && user.token) {
+        localStorage.setItem('currentUser', JSON.stringify(user));
+      }
     });
   }
 
   logout() {
-    console.log('logout');
+    localStorage.removeItem('currentUser');
   }
 
 }
