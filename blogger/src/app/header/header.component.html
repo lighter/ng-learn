@@ -17,8 +17,10 @@
       </li>
     </ul>
     <form class="form-inline mt-2 mt-md-0">
-      <a class="btn btn-default" [routerLink]="['signup']">註冊</a> /
-      <a class="btn btn-default" [routerLink]="['signin']">登入</a>
+      <a class="btn btn-default" [routerLink]="['signup']" *ngIf="!currentUser">註冊</a> /
+      <a class="btn btn-default" [routerLink]="['signin']" *ngIf="!currentUser">登入</a>
+
+      <button type="button" class="btn btn-default" (click)="logout()" *ngIf="!!currentUser">登出</button>
     </form>
   </div>
 </nav>

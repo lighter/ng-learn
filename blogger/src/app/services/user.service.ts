@@ -25,6 +25,10 @@ export class UserService {
     return this.http.delete(`/api/users/${id}`, this.jwt()).map((response: Response) => response.json());
   }
 
+  getAll() {
+    return this.http.get('/api/users', this.jwt()).map((response: Response) => response.json());
+  }
+
   private jwt() {
     let currentUser = JSON.parse(localStorage.getItem('currentUser'));
     if (currentUser && currentUser.token) {

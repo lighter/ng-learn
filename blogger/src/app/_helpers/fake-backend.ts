@@ -69,6 +69,16 @@ export function fakeBackendFactory(backend: MockBackend, options: BaseRequestOpt
       // end sign up
 
 
+      // ===== get all user =====
+      if (connection.request.url.endsWith('/api/users') && connection.request.method === RequestMethod.Get) {
+        connection.mockRespond(new Response(new ResponseOptions({
+          status: 200,
+          body: {
+            users: users
+          }
+        })));
+      }
+      // ===== end get all user =====
 
       let realHttp = new Http(realBackend, options);
       let requestOptions = new RequestOptions({
