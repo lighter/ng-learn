@@ -1,3 +1,12 @@
+# Install 
+
+```
+$ git clone https://github.com/lighter/ng-learn.git
+$ cd ng-larn/blogger
+$ npm install
+$ ng s
+```
+
 # Install bootstrap
 
 **step 1**

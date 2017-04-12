@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {User} from "../models/user";
 import {AuthenticationService} from "../services/authentication.service";
 import {Router} from "@angular/router";
@@ -14,9 +14,16 @@ export class HeaderComponent implements OnInit {
 
   constructor(private authService: AuthenticationService,
               private router: Router) {
+  }
+
+  is_login() {
     this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
 
-    console.log('header current User', this.currentUser);
+    if (this.currentUser) {
+      return true;
+    }
+
+    return false;
   }
 
   ngOnInit() {

@@ -34,6 +34,7 @@ export class SignInComponent implements OnInit {
 
   signIn(sign_in_data) {
     this.authService.login(sign_in_data.email, sign_in_data.password).subscribe(data => {
+      console.log('sign in', data);
       this.router.navigate([this.returnUrl]);
     }, error => {
       console.log('sign in error', error);

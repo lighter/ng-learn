@@ -20,6 +20,7 @@ export class HomeComponent implements OnInit {
 
   getAllUser() {
     this.userSerivce.getAll().subscribe(data => {
+      console.log('all user', data);
       this.allUser = data.users;
     }, error => {
       console.log(error);
