@@ -26,7 +26,7 @@
       </div>
       <div class="col-md-3">
         <div class="form-control-feedback">
-          <span class="text-danger align-middle">
+          <span class="text-danger align-middle" *ngIf="email.touched">
             <!-- Put e-mail validation error messages here -->
             <p *ngIf="email.hasError('required')">必填項目</p>
             <p *ngIf="email.hasError('invalidEmail')">請輸入正確的 email</p>
@@ -52,7 +52,7 @@
       </div>
       <div class="col-md-3">
         <div class="form-control-feedback">
-          <span class="text-danger align-middle">
+          <span class="text-danger align-middle" *ngIf="password.touched">
             <i class="fa fa-close" *ngIf="password.hasError('required')">必填項目</i>
             <i class="fa fa-close" *ngIf="password.hasError('minlength')">最少 5 位數</i>
           </span>
@@ -79,7 +79,7 @@
       </div>
       <div class="col-md-3">
         <div class="form-control-feedback">
-          <span class="text-danger align-middle">
+          <span class="text-danger align-middle" *ngIf="confirm_password.touched">
             <i class="fa fa-close" *ngIf="confirm_password.hasError('required')">必填項目</i>
             <i class="fa fa-close" *ngIf="confirm_password.hasError('minlength')">最少 5 位數</i>
             <i class="fa fa-close" *ngIf="signUpForm.hasError('mismatchedPasswords')">密碼與確認密碼不同</i>
