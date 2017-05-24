@@ -1,0 +1,4 @@
+demo:
+    build: ./demo/
+    ports:
+        - 4222:80
